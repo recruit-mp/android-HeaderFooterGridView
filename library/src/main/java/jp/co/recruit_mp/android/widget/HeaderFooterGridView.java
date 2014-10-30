@@ -119,7 +119,7 @@ public class HeaderFooterGridView extends GridView {
      * Add a fixed view to appear at the top of the grid. If addHeaderView is
      * called more than once, the views will appear in the order they were
      * added. Views added using this call can take focus if they want.
-     * <p/>
+     * <p>
      * NOTE: Call this before calling setAdapter. This is so HeaderFooterGridView can wrap
      * the supplied cursor with one that will also account for header views.
      *
@@ -155,7 +155,7 @@ public class HeaderFooterGridView extends GridView {
      * Add a fixed view to appear at the top of the grid. If addHeaderView is
      * called more than once, the views will appear in the order they were
      * added. Views added using this call can take focus if they want.
-     * <p/>
+     * <p>
      * NOTE: Call this before calling setAdapter. This is so HeaderFooterGridView can wrap
      * the supplied cursor with one that will also account for header views.
      *
@@ -169,7 +169,7 @@ public class HeaderFooterGridView extends GridView {
      * Add a fixed view to appear at the bottom of the grid. If addFooterView is
      * called more than once, the views will appear in the order they were
      * added. Views added using this call can take focus if they want.
-     * <p/>
+     * <p>
      * NOTE: Call this before calling setAdapter. This is so HeaderFooterGridView can wrap
      * the supplied cursor with one that will also account for header views.
      *
@@ -205,7 +205,7 @@ public class HeaderFooterGridView extends GridView {
      * Add a fixed view to appear at the bottom of the grid. If addFooterView is
      * called more than once, the views will appear in the order they were
      * added. Views added using this call can take focus if they want.
-     * <p/>
+     * <p>
      * NOTE: Call this before calling setAdapter. This is so HeaderFooterGridView can wrap
      * the supplied cursor with one that will also account for header views.
      *
