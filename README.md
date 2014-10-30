@@ -5,6 +5,16 @@ GridView supports header rows is [made by Google](http://grepcode.com/file/repos
 
 ![Screen shot](docs/screenshot.png)
 
+## Download
+
+Copy [source code](android-HeaderFooterGridView/blob/master/library/src/main/java/jp/co/recruit_mp/android/widget/HeaderFooterGridView.java)
+
+or Gradle:
+
+```groovy
+compile 'jp.co.recruit_mp:android-HeaderFooterGridView:0.1'
+```
+
 ## License
 
 ```
