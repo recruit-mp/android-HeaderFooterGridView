@@ -7,7 +7,7 @@ GridView supports header rows is [made by Google](http://grepcode.com/file/repos
 
 ## Download
 
-Copy [source code](android-HeaderFooterGridView/blob/master/library/src/main/java/jp/co/recruit_mp/android/widget/HeaderFooterGridView.java)
+Copy [source code](library/src/main/java/jp/co/recruit_mp/android/widget/HeaderFooterGridView.java)
 
 or Gradle:
 
