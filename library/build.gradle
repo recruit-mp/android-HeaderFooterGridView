@@ -5,7 +5,7 @@ android {
     buildToolsVersion '20.0.0'
 
     defaultConfig {
-        versionName '0.1-SNAPSHOT'
+        versionName '0.2'
     }
 }
 
