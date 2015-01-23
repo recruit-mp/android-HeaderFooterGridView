@@ -22,6 +22,7 @@ import android.database.DataSetObservable;
 import android.database.DataSetObserver;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -429,7 +430,9 @@ public class HeaderFooterGridView extends GridView {
         @Override
         public int getCount() {
             if (mAdapter != null) {
-                return (getHeadersCount() * mNumColumns) + mAdapter.getCount() + (mAdapter.getCount() % mNumColumns) + (getFootersCount() * mNumColumns);
+                final int lastRowItemCount = (mAdapter.getCount() % mNumColumns);
+                final int emptyItemCount = ((lastRowItemCount == 0) ? 0 : mNumColumns - lastRowItemCount);
+                return (getHeadersCount() * mNumColumns) + mAdapter.getCount() + emptyItemCount + (getFootersCount() * mNumColumns);
             } else {
                 return (getHeadersCount() * mNumColumns) + (getFootersCount() * mNumColumns);
             }
@@ -466,15 +469,17 @@ public class HeaderFooterGridView extends GridView {
             }
 
             // Empty item
-            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + (mAdapter.getCount() % mNumColumns)) {
+            final int lastRowItemCount = (mAdapter.getCount() % mNumColumns);
+            final int emptyItemCount = ((lastRowItemCount == 0) ? 0 : mNumColumns - lastRowItemCount);
+            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + emptyItemCount) {
                 return false;
             }
 
             // Footer
             int numFootersAndPlaceholders = getFootersCount() * mNumColumns;
-            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + (mAdapter.getCount() % mNumColumns) + numFootersAndPlaceholders) {
+            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + emptyItemCount + numFootersAndPlaceholders) {
                 return (position % mNumColumns == 0)
-                        && mFooterViewInfos.get((position - numHeadersAndPlaceholders - mAdapter.getCount() - (mAdapter.getCount() % mNumColumns)) / mNumColumns).isSelectable;
+                        && mFooterViewInfos.get((position - numHeadersAndPlaceholders - mAdapter.getCount() - emptyItemCount) / mNumColumns).isSelectable;
             }
 
             throw new ArrayIndexOutOfBoundsException(position);
@@ -504,15 +509,17 @@ public class HeaderFooterGridView extends GridView {
             }
 
             // Empty item
-            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + (mAdapter.getCount() % mNumColumns)) {
+            final int lastRowItemCount = (mAdapter.getCount() % mNumColumns);
+            final int emptyItemCount = ((lastRowItemCount == 0) ? 0 : mNumColumns - lastRowItemCount);
+            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + emptyItemCount) {
                 return null;
             }
 
             // Footer
             int numFootersAndPlaceholders = getFootersCount() * mNumColumns;
-            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + (mAdapter.getCount() % mNumColumns) + numFootersAndPlaceholders) {
+            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + emptyItemCount + numFootersAndPlaceholders) {
                 if (position % mNumColumns == 0) {
-                    return mFooterViewInfos.get((position - numHeadersAndPlaceholders - mAdapter.getCount() - (mAdapter.getCount() % mNumColumns)) / mNumColumns).data;
+                    return mFooterViewInfos.get((position - numHeadersAndPlaceholders - mAdapter.getCount() - emptyItemCount) / mNumColumns).data;
                 }
             }
 
@@ -574,7 +581,9 @@ public class HeaderFooterGridView extends GridView {
             }
 
             // Empty item
-            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + (mAdapter.getCount() % mNumColumns)) {
+            final int lastRowItemCount = (mAdapter.getCount() % mNumColumns);
+            final int emptyItemCount = ((lastRowItemCount == 0) ? 0 : mNumColumns - lastRowItemCount);
+            if (position < numHeadersAndPlaceholders + mAdapter.getCount() + emptyItemCount) {
                 // We need to do this because GridView uses the height of the last item
                 // in a row to determine the height for the entire row.
                 // TODO Current implementation may not be enough in the case of 3 or more column. May need to be careful on the INVISIBLE View height.
@@ -585,9 +594,9 @@ public class HeaderFooterGridView extends GridView {
 
             // Footer
             int numFootersAndPlaceholders = getFootersCount() * mNumColumns;
-            if (position < numHeadersAndPlaceholders + mAdapter.getCount()  + (mAdapter.getCount() % mNumColumns) + numFootersAndPlaceholders) {
+            if (position < numHeadersAndPlaceholders + mAdapter.getCount()  + emptyItemCount + numFootersAndPlaceholders) {
                 View footerViewContainer = mFooterViewInfos
-                        .get((position - numHeadersAndPlaceholders - mAdapter.getCount() - (mAdapter.getCount() % mNumColumns)) / mNumColumns).viewContainer;
+                        .get((position - numHeadersAndPlaceholders - mAdapter.getCount() - emptyItemCount) / mNumColumns).viewContainer;
                 if (position % mNumColumns == 0) {
                     return footerViewContainer;
                 } else {
