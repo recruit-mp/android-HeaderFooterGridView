@@ -24,8 +24,6 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import jp.co.recruit_mp.android.widget.HeaderFooterGridView;
 
 public class HeaderFooterGridViewDemoActivity extends ActionBarActivity {
