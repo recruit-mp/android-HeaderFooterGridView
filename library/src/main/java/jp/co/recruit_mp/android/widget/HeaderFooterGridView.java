@@ -618,11 +618,14 @@ public class HeaderFooterGridView extends GridView {
                 // Placeholders get the last view type number
                 return mAdapter != null ? mAdapter.getViewTypeCount() : 1;
             }
-            if (mAdapter != null && position >= numHeadersAndPlaceholders && position < numHeadersAndPlaceholders + mAdapter.getCount()) {
+            if (mAdapter != null && position >= numHeadersAndPlaceholders && position < numHeadersAndPlaceholders + mAdapter.getCount()  + (mNumColumns - (mAdapter.getCount() % mNumColumns))) {
                 int adjPosition = position - numHeadersAndPlaceholders;
                 int adapterCount = mAdapter.getCount();
                 if (adjPosition < adapterCount) {
                     return mAdapter.getItemViewType(adjPosition);
+                }else if(adapterCount != 0)
+                {
+                   return mAdapter.getItemViewType(adapterCount - 1);
                 }
             }
             int numFootersAndPlaceholders = getFootersCount() * mNumColumns;
@@ -674,4 +677,5 @@ public class HeaderFooterGridView extends GridView {
             mDataSetObservable.notifyChanged();
         }
     }
+
 }
