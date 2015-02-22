@@ -17,6 +17,7 @@
 
 package jp.co.recruit_mp.android.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObservable;
 import android.database.DataSetObserver;
@@ -310,6 +311,7 @@ public class HeaderFooterGridView extends GridView {
     }
 
     @Override
+    @SuppressLint("NewApi")
     public int getNumColumns() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             return super.getNumColumns();
