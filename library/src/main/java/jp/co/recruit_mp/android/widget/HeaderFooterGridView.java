@@ -17,6 +17,7 @@
 
 package jp.co.recruit_mp.android.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObservable;
 import android.database.DataSetObserver;
@@ -310,6 +311,7 @@ public class HeaderFooterGridView extends GridView {
     }
 
     @Override
+    @SuppressLint("NewApi")
     public int getNumColumns() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             return super.getNumColumns();
@@ -618,14 +620,14 @@ public class HeaderFooterGridView extends GridView {
                 // Placeholders get the last view type number
                 return mAdapter != null ? mAdapter.getViewTypeCount() : 1;
             }
-            if (mAdapter != null && position >= numHeadersAndPlaceholders && position < numHeadersAndPlaceholders + mAdapter.getCount()  + (mNumColumns - (mAdapter.getCount() % mNumColumns))) {
+            if (mAdapter != null && position >= numHeadersAndPlaceholders && position < numHeadersAndPlaceholders + mAdapter.getCount() + (mNumColumns - (mAdapter.getCount() % mNumColumns))) {
                 int adjPosition = position - numHeadersAndPlaceholders;
                 int adapterCount = mAdapter.getCount();
                 if (adjPosition < adapterCount) {
                     return mAdapter.getItemViewType(adjPosition);
                 }else if(adapterCount != 0 && mNumColumns != 1)
                 {
-                   return mAdapter.getItemViewType(adapterCount - 1);
+                    return mAdapter.getItemViewType(adapterCount - 1);
                 }
             }
             int numFootersAndPlaceholders = getFootersCount() * mNumColumns;
