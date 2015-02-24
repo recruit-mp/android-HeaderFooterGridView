@@ -625,7 +625,8 @@ public class HeaderFooterGridView extends GridView {
                 int adapterCount = mAdapter.getCount();
                 if (adjPosition < adapterCount) {
                     return mAdapter.getItemViewType(adjPosition);
-                } else if (adapterCount != 0) {
+                }else if(adapterCount != 0 && mNumColumns != 1)
+                {
                     return mAdapter.getItemViewType(adapterCount - 1);
                 }
             }
