@@ -12,7 +12,7 @@ Copy [source code](library/src/main/java/jp/co/recruit_mp/android/widget/HeaderF
 or Gradle:
 
 ```groovy
-compile 'jp.co.recruit_mp:android-HeaderFooterGridView:0.2.2'
+compile 'jp.co.recruit_mp:android-HeaderFooterGridView:0.2.3'
 ```
 
 ## License
