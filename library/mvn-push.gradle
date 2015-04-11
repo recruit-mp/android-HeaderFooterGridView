@@ -78,6 +78,9 @@ afterEvaluate { project ->
         source = android.sourceSets.main.java.getSrcDirs()
         classpath = files(ext.androidJar)
         options.links("http://docs.oracle.com/javase/7/docs/api/")
+        if (JavaVersion.current().isJava8Compatible()) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
     }
 
     task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
