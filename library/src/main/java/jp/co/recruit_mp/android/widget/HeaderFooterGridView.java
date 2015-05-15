@@ -576,7 +576,9 @@ public class HeaderFooterGridView extends GridView {
                 if (mAdapter != null) {
                     adapterCount = mAdapter.getCount();
                     if (adjPosition < adapterCount) {
-                        return mAdapter.getView(adjPosition, convertView, parent);
+                        convertView = mAdapter.getView(adjPosition, convertView, parent);
+                        convertView.setVisibility(View.VISIBLE);
+                        return convertView;
                     }
                 }
             }
