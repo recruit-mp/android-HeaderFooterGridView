@@ -1,7 +1,7 @@
 # HeaderFooterGridView
 
 HeaderFooterGridView supports adding header rows and footer rows to GridView for Android.  
-GridView supports header rows is [made by Google](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android-apps/4.4_r1/com/android/photos/views/HeaderGridView.java), we added footer rows to it.
+HeaderGridView supports header rows is [made by Google](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android-apps/4.4_r1/com/android/photos/views/HeaderGridView.java), we added footer rows to it.
 
 ![Screen shot](docs/screenshot.png)
 
