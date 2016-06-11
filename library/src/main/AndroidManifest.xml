@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.co.recruit_mp.android.widget">
+    package="jp.co.recruit_mp.android.headerfootergridview">
 
     <application/>
 

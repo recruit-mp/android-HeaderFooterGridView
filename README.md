@@ -5,6 +5,10 @@ HeaderGridView supports header rows is [made by Google](http://grepcode.com/file
 
 ![Screen shot](docs/screenshot.png)
 
+## Notice
+
+HeaderFooterGridView package name was renamed from `jp.co.recruit_mp.android.widget` to `jp.co.recruit_mp.android.headerfootergridview` in version 0.2.5.
+
 ## Download
 
 Copy [source code](library/src/main/java/jp/co/recruit_mp/android/widget/HeaderFooterGridView.java)
@@ -12,7 +16,7 @@ Copy [source code](library/src/main/java/jp/co/recruit_mp/android/widget/HeaderF
 or Gradle:
 
 ```groovy
-compile 'jp.co.recruit_mp:android-HeaderFooterGridView:0.2.4'
+compile 'jp.co.recruit_mp:android-HeaderFooterGridView:0.2.5'
 ```
 
 ## License

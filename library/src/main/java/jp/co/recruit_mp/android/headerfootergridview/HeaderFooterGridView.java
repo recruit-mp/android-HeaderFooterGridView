@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package jp.co.recruit_mp.android.widget;
+package jp.co.recruit_mp.android.headerfootergridview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
